@@ -1,0 +1,816 @@
+/* Splash overlay */
+#splash-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.4s ease;
+}
+
+#splash-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#splash-gif {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+}
+
+#splash-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+#splash-close:hover {
+  opacity: 1;
+}
+
+@font-face {
+  font-family: "Valentine";
+  src: url("Song of Valentine Sans.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Marshi";
+  src: url("Marshi Sans.otf") format("opentype");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-image: url(backgroundenhanced.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
+}
+
+header {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(to bottom, #FFD700, #f8eeb6);
+  border-bottom: 5px solid #2f762f;
+  border-top: 5px solid #2f762f;
+}
+
+nav div.menu {
+  margin: 0 auto;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a,
+nav ul li .dropbtn {
+  font-family: "Valentine";
+  display: block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  color: #2f762f;
+  text-decoration: none;
+  background: none;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+nav ul li a:hover,
+nav ul li .dropbtn:hover {
+  background-color: #cfb93b;
+  border-color: #2f762f;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #FFD700;
+  border: 3px solid #2f762f;
+  border-radius: 15px;
+  min-width: 180px;
+  z-index: 100;
+  list-style: none;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.dropdown-content li a {
+  padding: 10px 16px;
+  white-space: nowrap;
+  margin: 0 5px;
+  border-radius: 25px;
+  border: 2px solid transparent;
+}
+
+.dropdown-content li a:hover {
+  background-color: #cfb93b;
+  border-color: #2f762f;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+nav.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.banner img {
+  display: block;
+  width: 100%;
+}
+
+.nav-active {
+  background-color: #ffffff;
+  color: #2f762f;
+  font-size: 16px;
+  border-radius: 25px;
+  margin: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid #2f762f;
+}
+
+.konten {
+  padding-top: 20px;
+  padding-right: 75px;
+  padding-left: 75px;
+}
+
+.center-videos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.center-videos img,
+.center-videos video {
+  max-width: 100%;
+  height: auto;
+}
+
+.video-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.members {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 24px;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 150px;
+}
+
+.anggota:hover {
+  border-radius: 16px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  transform: scale(1.05);
+}
+
+.anggota {
+  background-color: #FFD700;
+  border: 5px solid #2f762f;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 150px;
+  cursor: pointer;
+}
+
+.pendahuluan,
+.abstrak,
+.kesimpulan,
+.saran,
+.daftarpustaka,
+.laporanpelaksanaan,
+.booth,
+.intro-perproduksi,
+.refleksikegiatan,
+.perencanaan-promosi,
+.statistik {
+  background-color: #FFD700;
+  border-radius: 20px;
+  text-align: justify;
+  border: 5px solid rgb(47, 118, 47);
+  padding: 25px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 20px;
+}
+
+.booth {
+  margin-top: 20px;
+}
+
+h1 {
+  font-family: "Marshi", sans-serif;
+  margin-top: 50px;
+}
+
+
+.pendahuluan p,
+.abstrak p,
+.kesimpulan p,
+.saran p,
+.daftarpustaka p,
+.lampiran p,
+.laporanpelaksanaan p,
+.intro-perproduksi p,
+.container-tulisan p,
+.refleksikegiatan p,
+.perencanaan-promosi p,
+.charity-konten p,
+.statistik p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container-tulisan p {
+  margin-top: 30px;
+}
+
+.container,
+.container-pelaksanaan {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 10px;
+  scroll-margin-top: 90px;
+}
+
+.deskripsiproduk,
+.container-tulisan {
+  background-color: #FFD700;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: 5px solid rgb(47, 118, 47);
+  border-radius: 20px;
+  width: 100%;
+}
+
+.deskripsiproduk p,
+.deskripsi-promosi p,
+.deskripsi-booth p {
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+}
+
+.deskripsi-promosi p {
+  text-align: justify;
+}
+
+section {
+  padding: 100px 10%;
+  scroll-margin-top: 100px;
+}
+
+section h2 {
+  color: #023e8a;
+  margin-bottom: 10px;
+}
+
+iframe {
+  width: 85%;
+  height: 600px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-left: 25px;
+  font-family: "Marshi";
+}
+
+.bagian {
+  background-color: #FFD700;
+  border: 5px solid rgb(47, 118, 47);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+}
+
+.gambarproduk,
+.gambarpromosi,
+.gambarbooth {
+  width: 225px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.gambarpromosi {
+  border: 5px solid rgb(47, 118, 47);
+  border-radius: 20px;
+}
+
+.gambarproduk {
+  background-color: white;
+  border: 5px solid #2f762f;
+  border-radius: 20px;
+}
+
+.container-promosi,
+.container-booth {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  background-color: #FFD700;
+  border: 5px solid #2f762f;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container-booth-right {
+  flex-direction: row-reverse;
+}
+
+.container-videopromosi {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  background-color: #FFD700;
+  border: 5px solid #2f762f;
+  border-radius: 20px;
+  padding: 25px;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.saran {
+  margin-top: 20px;
+}
+
+.h1-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 15px;
+  margin-top: 30px;
+  scroll-margin-top: 90px;
+}
+
+.carousel {
+  background-color: #FFD700;
+  border: 5px solid #2f762f;
+  border-radius: 20px;
+  height: 525px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.carousel-slide.active {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  z-index: 10;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.carousel-button.prev {
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.carousel-button.next {
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.carousel-indicators {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.carousel-dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dot.active {
+  background-color: #333;
+}
+
+.diagram {
+  width: 65%;
+  height: 65%;
+}
+
+.container-tujuan-manfaat,
+.container-aritmatika,
+.container-procedure {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.isi-containertuman,
+.procedure-text {
+  background-color: #FFD700;
+  border: 5px solid #2f762f;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: justify;
+  font-family: "Montserrat", sans-serif;
+}
+
+.isi-containertuman ol {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.isi-containertuman ol li {
+  margin-bottom: 0.8em;
+  font-family: "Montserrat", sans-serif;
+}
+
+.isi-containertuman ol li:last-child {
+  margin-bottom: 0;
+}
+
+.manfaat-list {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.manfaat-list li {
+  margin-bottom: 1.5em;
+  font-family: "Montserrat", sans-serif;
+}
+
+.manfaat-list li:last-child {
+  margin-bottom: 0;
+}
+
+.manfaat-list li p {
+  margin: 0.2em 0 0 0;
+  padding-left: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.produk-ingredients,
+.produk-instructions {
+  font-family: "Montserrat", sans-serif;
+  margin: 0.3em 0 1em 0;
+  padding-left: 1.4em;
+}
+
+.produk-ingredients li,
+.produk-instructions li {
+  margin-bottom: 0.4em;
+}
+
+.container-aritmatika {
+  background-color: #FFD700;
+  border: 5px solid #2f762f;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.isi-aritmatika {
+  padding: 20px;
+  width: 500px;
+  justify-self: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hyperlink {
+  text-decoration: none;
+  color: #2f762f;
+  font-weight: bold;
+}
+
+.fotoanggota {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h3 {
+  font-size: 30px;
+  font-family: "Valentine", sans-serif;
+}
+
+.daftarpustaka {
+  padding-left: 1.5em;
+}
+
+.daftarpustaka li {
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 1.2em;
+  line-height: 1.5;
+}
+
+.akses-tanggal {
+  display: block;
+  font-size: 0.82em;
+  color: #888;
+  margin-top: 0.2em;
+}
+
+footer {
+  background-color: #1a4a1a;
+  border-top: 5px solid #FFD700;
+  margin-top: 30px;
+  padding: 40px 0 20px 0;
+}
+
+.footer-inner,
+.footer-copyright {
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-brand p {
+  font-family: "Valentine", sans-serif;
+  color: #FFD700;
+  font-size: 28px;
+  margin: 0 0 12px 0;
+}
+
+.footer-brand .footer-ig a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFD700;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer-brand .footer-ig a:hover {
+  text-decoration: underline;
+}
+
+.footer-brand .footer-ig svg {
+  width: 22px;
+  height: 22px;
+  fill: #FFD700;
+  flex-shrink: 0;
+}
+
+.footer-col h4 {
+  font-family: "Montserrat", sans-serif;
+  color: #FFD700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #FFD70055;
+  padding-bottom: 6px;
+}
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 6px;
+}
+
+.footer-col ul li a {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffffcc;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+  color: #FFD700;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff66;
+  font-size: 0.75rem;
+  border-top: 1px solid #ffffff22;
+  padding-top: 16px;
+}
+
+.statistik {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.statistik-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.fotostatistik {
+  width: 98%;
+  height: auto;
+  border-radius: 20px;
+  border: 5px solid #2f762f;
+}
+
+.presentasi-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.2500%;
+  padding-bottom: 0;
+  box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
+  margin-top: 1.6em;
+  margin-bottom: 0.9em;
+  overflow: hidden;
+  border-radius: 8px;
+  will-change: transform;
+}
+
+.hasil-akhirbooth p,
+.promosi-whatsapp p,
+.bagian-charity p {
+  flex: 1;
+  background-color: #FFD700;
+  padding: 20px;
+  border: 5px solid #2f762f;
+  border-radius: 20px;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+}
+
+.fotohasil,
+.fotowhatsapp,
+.fotocharity {
+  float: right;
+  width: 300px;
+  border-radius: 10px;
+  height: auto;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.lampiran {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 24px;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 20px;
+}
+
+.lampiran-portrait {
+  border: 5px solid #2f762f;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-align: center;
+  width: 300px;
+  height: 450px;
+  cursor: pointer;
+}
+
+.lampiran-landscape {
+  border: 5px solid #2f762f;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-align: center;
+  width: 300px;
+  height: 200px;
+}
+
+.gambar-poster {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  background-color: #FFD700;
+  border: 5px solid #2f762f;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.poster {
+  border: 5px solid #2f762f;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+}
